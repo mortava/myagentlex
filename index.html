@@ -406,8 +406,8 @@
       }
 
       .input-wrapper:focus-within {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        border-color: var(--brand-color, var(--accent));
+        box-shadow: 0 0 0 3px rgba(152, 64, 107, 0.15);
       }
 
       .input-field {
@@ -649,8 +649,8 @@
 
       /* ── Focus visible for keyboard users ── */
       .input-wrapper:focus-within {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        border-color: var(--brand-color, var(--accent));
+        box-shadow: 0 0 0 3px rgba(152, 64, 107, 0.15);
       }
 
       /* ── White Label: Brand Logo ── */
@@ -661,7 +661,7 @@
 
       .brand-logo {
         font-size: 28px;
-        font-weight: 800;
+        font-weight: 600;
         line-height: 1.2;
         letter-spacing: -0.5px;
       }

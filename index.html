@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%2398406B'/></svg>" type="image/svg+xml" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%239B1B9B'/></svg>" type="image/svg+xml" />
 
     <!--
     ╔══════════════════════════════════════════════════════════════╗
@@ -24,20 +24,20 @@
         // Tagline below the chat input
         taglineLeft:    "AI Assistant for",
         taglineName:    "Alex Kemp",
-        taglinePhone:   "Call/Text 509-531-1506",
+        taglinePhone:   "",
         taglineRight:   "Apply online",
         taglineLink:    "https://ionmortgagelending.loanzify.io/register",
         copyright:      "\u00A9 OpenBroker Labs",
 
         // Disclaimer
-        disclaimer:     "This AI Tool is not a part of the above mentioned mortgage professional's Company, nothing provided by this tool is any type of commitment to lend or arrange any type of loan. AI can make mistakes. Check important info. Intended for information use only.",
+        disclaimer:     "This AI tool is not affiliated with the above mortgage professional\u2019s company and does not offer or commit to lend. AI may make mistakes. For informational purposes only.",
 
         // Input placeholder
         placeholder:    "Ask me anything about your mortgage...",
 
         // Accent colors
-        accentColor:    "#B8609A",        // Lighter rose for brandPart2
-        brandColor:     "#98406B",        // Deep rose/plum for brandPart1
+        accentColor:    "#C76FA0",        // Lighter rose/pink for brandPart2
+        brandColor:     "#9B1B9B",        // Vibrant purple for brandPart1
       };
 
       document.title = WHITE_LABEL.pageTitle;
@@ -47,7 +47,7 @@
 
     <style>
       :root {
-        --bg-page: #F3F4F6;
+        --bg-page: #FAFAFA;
         --bg-primary: #FFFFFF;
         --bg-assistant: #F3F4F6;
         --bg-user: #DBEAFE;
@@ -57,7 +57,7 @@
         --border: #E5E7EB;
         --accent: #3B82F6;
         --send-btn: #C9CDD3;
-        --send-btn-hover: #3B82F6;
+        --send-btn-hover: #9B1B9B;
         --radius-sm: 6px;
         --radius-md: 12px;
         --radius-lg: 16px;
@@ -294,7 +294,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: calc(100% - 48px);
-        max-width: 700px;
+        max-width: 720px;
       }
 
       .chat-widget.centered .input-container {
@@ -319,8 +319,8 @@
 
       .chat-widget:not(.centered) .input-container {
         padding: 12px;
-        border-top: 1px solid var(--border);
-        background: var(--bg-primary);
+        border-top: none;
+        background: var(--bg-page);
       }
 
       /* ── Thinking Stages ── */
@@ -399,16 +399,17 @@
         display: flex;
         flex-direction: column;
         background: var(--bg-primary);
-        border: 1px solid var(--border);
+        border: 1px solid #D1D5DB;
         border-radius: var(--radius-lg);
-        padding: 14px 16px 10px;
+        padding: 16px 18px 12px;
         transition: border-color 0.2s, box-shadow 0.2s;
-        min-height: 80px;
+        min-height: 90px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       }
 
       .input-wrapper:focus-within {
         border-color: var(--brand-color, var(--accent));
-        box-shadow: 0 0 0 3px rgba(152, 64, 107, 0.15);
+        box-shadow: 0 0 0 3px rgba(155, 27, 155, 0.1);
       }
 
       .input-field {
@@ -430,8 +431,8 @@
       }
 
       .input-field::placeholder {
-        color: var(--text-secondary);
-        font-size: 14px;
+        color: #9CA3AF;
+        font-size: 15px;
       }
 
       .input-bottom-row {
@@ -462,11 +463,11 @@
       }
 
       .send-btn {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
         border: none;
         border-radius: 50%;
-        background: var(--send-btn);
+        background: #D1D5DB;
         color: white;
         cursor: pointer;
         display: flex;
@@ -478,7 +479,7 @@
       }
 
       .send-btn:hover:not(:disabled) {
-        background: var(--send-btn-hover);
+        background: #9B1B9B;
       }
 
       .send-btn:active:not(:disabled) {
@@ -571,7 +572,7 @@
         height: 16px;
       }
 
-      /* ── Mobile-first: no constraints ── */
+      /* ── Mobile-first: base styles ── */
       .messages-container {
         padding: 12px 10px;
         gap: 6px;
@@ -588,8 +589,63 @@
       }
 
       .input-wrapper {
-        min-height: 70px;
-        padding: 12px 14px 8px;
+        min-height: 80px;
+        padding: 14px 14px 10px;
+      }
+
+      /* ── Small phones (≤380px) ── */
+      @media (max-width: 380px) {
+        .brand-logo .part1 {
+          font-size: 28px;
+        }
+        .brand-logo .part2 {
+          font-size: 13px;
+        }
+        .brand-logo {
+          gap: 6px;
+        }
+        .brand-tagline .built-for .name {
+          font-size: 16px;
+        }
+        .brand-tagline .visit-link {
+          font-size: 13px;
+        }
+        .input-wrapper {
+          min-height: 70px;
+          padding: 12px 12px 8px;
+        }
+        .send-btn {
+          width: 42px;
+          height: 42px;
+        }
+      }
+
+      /* ── Mobile landscape & larger phones ── */
+      @media (max-width: 600px) {
+        .chat-widget.centered .input-zone {
+          width: calc(100% - 24px);
+          max-width: none;
+        }
+
+        .brand-tagline {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 4px;
+        }
+
+        .brand-tagline .tagline-left {
+          align-items: center;
+        }
+
+        .brand-tagline .tagline-right {
+          align-items: center;
+        }
+
+        .brand-logo {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
       }
 
       /* ── Tablet+ ── */
@@ -606,8 +662,8 @@
         }
 
         .input-wrapper {
-          min-height: 80px;
-          padding: 14px 16px 10px;
+          min-height: 90px;
+          padding: 16px 18px 12px;
         }
       }
 
@@ -615,19 +671,6 @@
       @supports (padding-bottom: env(safe-area-inset-bottom)) {
         .chat-widget:not(.centered) .input-zone {
           padding-bottom: env(safe-area-inset-bottom);
-        }
-      }
-
-      /* Mobile: full-width centered input zone */
-      @media (max-width: 600px) {
-        .chat-widget.centered .input-zone {
-          width: calc(100% - 24px);
-          max-width: none;
-        }
-
-        .brand-tagline {
-          flex-direction: column;
-          gap: 2px;
         }
       }
 
@@ -648,12 +691,6 @@
         }
       }
 
-      /* ── Focus visible for keyboard users ── */
-      .input-wrapper:focus-within {
-        border-color: var(--brand-color, var(--accent));
-        box-shadow: 0 0 0 3px rgba(152, 64, 107, 0.15);
-      }
-
       /* ── White Label: Brand Logo ── */
       .brand-header {
         padding: 16px 16px 8px;
@@ -663,40 +700,42 @@
       .brand-logo {
         line-height: 1.2;
         letter-spacing: -0.5px;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
       }
 
       .brand-logo .part1 {
-        font-size: 30px;
-        font-weight: 800;
-        color: var(--brand-color, #1F2937);
+        font-size: 38px;
+        font-weight: 900;
+        color: var(--brand-color, #9B1B9B);
+        letter-spacing: -1px;
       }
 
       .brand-logo .part2 {
         font-size: 16px;
-        font-weight: 300;
-        color: var(--accent-brand, #9CA3AF);
-        letter-spacing: 0;
+        font-weight: 400;
+        color: var(--accent-brand, #C76FA0);
+        letter-spacing: 0.3px;
       }
 
       /* ── Gradient top bar ── */
       .top-bar {
-        height: 4px;
-        background: linear-gradient(90deg, #B8609A, #98406B, #7A3057);
-        flex-shrink: 0;
+        display: none;
       }
 
       /* ── White Label: Tagline + Disclaimer (inside input-zone) ── */
       .brand-tagline-block {
-        padding: 12px 4px 0;
+        padding: 14px 4px 0;
       }
 
       .brand-tagline {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 4px 12px;
-        margin-bottom: 8px;
+        gap: 6px 16px;
+        margin-bottom: 10px;
       }
 
       .brand-tagline .tagline-left {
@@ -706,19 +745,21 @@
 
       .brand-tagline .built-for {
         font-size: 15px;
-        color: var(--brand-color, var(--text-secondary));
+        color: var(--text-secondary);
         font-weight: 400;
       }
 
       .brand-tagline .built-for .name {
         color: var(--text-primary);
         font-weight: 700;
+        font-size: 18px;
       }
 
       .brand-tagline .tagline-phone {
         font-size: 14px;
         color: var(--brand-color, var(--text-secondary));
         font-weight: 700;
+        display: none;
       }
 
       .brand-tagline .tagline-right {
@@ -728,33 +769,42 @@
       }
 
       .brand-tagline .visit-link {
-        font-size: 14px;
-        color: var(--brand-color, var(--text-secondary));
+        font-size: 15px;
+        color: var(--brand-color, #9B1B9B);
         text-decoration: none;
         white-space: nowrap;
+        font-weight: 500;
+        transition: opacity 0.2s;
       }
 
       .brand-tagline .visit-link:hover {
-        color: var(--text-primary);
+        opacity: 0.8;
+      }
+
+      .brand-disclaimer {
+        font-size: 10.5px;
+        color: #9CA3AF;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 4px;
       }
 
       .brand-copyright {
         font-size: 11px;
-        color: var(--text-secondary);
-        margin-top: 2px;
-      }
-
-      .brand-disclaimer {
-        font-size: 11px;
-        color: var(--text-secondary);
-        line-height: 1.5;
+        color: #9CA3AF;
+        text-align: center;
       }
 
       /* ── White Label: Brand Footer (docked mode) ── */
       .brand-footer {
-        padding: 8px 16px 12px;
+        padding: 10px 16px 14px;
         flex-shrink: 0;
         background: var(--bg-page);
+      }
+
+      .brand-footer .brand-tagline .tagline-phone {
+        display: none;
       }
 
       /* Hide pinned header in centered mode — show inline logo above input instead */
@@ -764,7 +814,11 @@
 
       .chat-widget.centered .brand-header-inline {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+      }
+
+      .chat-widget.centered .brand-header-inline .brand-logo {
+        justify-content: flex-start;
       }
 
       .chat-widget:not(.centered) .brand-header-inline {
@@ -844,14 +898,13 @@
           <div class="brand-tagline">
             <div class="tagline-left">
               <span class="built-for" id="builtFor"></span>
-              <span class="tagline-phone" id="taglinePhone"></span>
             </div>
             <div class="tagline-right">
               <a class="visit-link" id="visitLink" href="#" target="_blank" rel="noopener"></a>
-              <div class="brand-copyright" id="brandCopyright"></div>
             </div>
           </div>
           <div class="brand-disclaimer" id="brandDisclaimer"></div>
+          <div class="brand-copyright" id="brandCopyright"></div>
         </div>
       </div>
 
@@ -860,14 +913,13 @@
         <div class="brand-tagline">
           <div class="tagline-left">
             <span class="built-for" id="builtForDocked"></span>
-            <span class="tagline-phone" id="taglinePhoneDocked"></span>
           </div>
           <div class="tagline-right">
             <a class="visit-link" id="visitLinkDocked" href="#" target="_blank" rel="noopener"></a>
-            <div class="brand-copyright" id="brandCopyrightDocked"></div>
           </div>
         </div>
         <div class="brand-disclaimer" id="brandDisclaimerDocked"></div>
+        <div class="brand-copyright" id="brandCopyrightDocked"></div>
       </div>
     </div>
 
@@ -1269,12 +1321,6 @@
             const leftText = wl.taglineLeft || '';
             document.getElementById('builtFor').textContent = leftText;
             document.getElementById('builtForDocked').textContent = leftText;
-          }
-
-          // Phone line
-          if (wl.taglinePhone) {
-            document.getElementById('taglinePhone').textContent = wl.taglinePhone;
-            document.getElementById('taglinePhoneDocked').textContent = wl.taglinePhone;
           }
 
           // Tagline — right side link with arrow
